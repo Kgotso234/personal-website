@@ -161,4 +161,9 @@
     margin-right: 0;
     margin-bottom: 15px;
   }
+  .edu-location,
+  .exp-location {
+    justify-content: center;
+    text-align: center;
+  }
 }
