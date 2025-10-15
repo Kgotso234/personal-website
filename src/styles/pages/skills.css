@@ -1,0 +1,107 @@
+.skills-category {
+  margin-bottom: 40px;
+  background: var(--color-light);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+.skills-category h3 {
+  color: var(--color-secondary);
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.skills-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+.languages-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+.language-grid {
+  flex: 1;
+  background: var(--color-light);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 3px 8px var(--shadow-color);
+  transition: transform 0.3s ease;
+  border: 1px solid var(--color-accent);
+ 
+}
+.language-grid:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  border-color: var(--color-primary);
+}
+
+.language-grid h3 {
+  color: var(--color-secondary);
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.language-item {
+  margin-top: 10px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.custom-icon {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  margin: 10px;
+  transition: transform 0.3s ease; 
+}
+
+.custom-icon:hover {
+  transform: scale(1.1);
+}
+
+.core-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.core-skill-item {
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--color-light);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  border: 1px solid var(--color-accent);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.core-skill-item span {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.core-skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.core-skill-item:hover span {
+  color: var(--color-light);
+}

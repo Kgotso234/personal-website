@@ -1,0 +1,24 @@
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #1e293b;
+  --color-accent: #f97316;
+  --color-background: #f8fafc;
+  --color-text: #334155;
+  --color-light: #ffffff;
+  --color-border: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  overflow-x: hidden;
+  color: var(--color-text);
+  line-height: 1.6;
+}
