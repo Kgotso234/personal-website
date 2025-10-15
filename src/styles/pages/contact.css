@@ -211,7 +211,7 @@
   .chatbot-popup {
     width: 280px;
     bottom: 90px;
-    left: 20px;
+    right: 20px;
   }
 
   .chatbot-icon {
@@ -219,7 +219,7 @@
     height: 55px;
     font-size: 1.5rem;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
   }
 }
 @media screen and (max-width: 576px) {
@@ -258,7 +258,7 @@
   }
   .chatbot-popup {
     width: 90%;
-    left: 5%;
+    right: 5%;
     bottom: 90px;
     border-radius: 14px;
   }
@@ -285,6 +285,6 @@
     height: 50px;
     font-size: 1.3rem;
     bottom: 20px;
-    left: 15px;
+    right: 15px;
   }
 }
