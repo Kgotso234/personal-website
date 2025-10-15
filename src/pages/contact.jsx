@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "../styles/pages/contact.css";
 
 const Contact = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <section id="contact" className="section ">
             <div className="container">
@@ -33,25 +35,46 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <form action="" className="contact-form" id="contact-form">
-                            <div className="form-group">
-                                <input type="text" name="user_name" id="#" placeholder="Your Name" required />
-                            </div>
-                            <div className="form-group">
-                                <input type="text" name="user_email" id="#" placeholder="Your Email" required />
-                            </div>
-                            <div className="form-group">
-                                <input type="text" name="subject" id="#" placeholder="Subject" required />
-                            </div>
-                            <div className="form-group">
-                                <textarea name="message" id="#" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit">Send Message</button>
-                        </form>
-
+                        
                     </div>
                 </div>
             </div>
+            {/* Chatbot Icon */}
+            <div
+                className="chatbot-icon"
+                onClick={() => setIsOpen(!isOpen)}
+                title="Chat with me"
+            >
+                💬
+            </div>
+
+            {/* Chatbot Popup */}
+            {isOpen && (
+                <div className="chatbot-popup">
+                    <div className="chatbot-header">
+                        <h4>Ask Me Anything</h4>
+                        <button onClick={() => setIsOpen(false)}>×</button>
+                    </div>
+                    <div className="chatbot-body">
+                        <p>👋 Hi! I’m KgotsoBot. Ask me anything about me or my portfolio.</p>
+                        {/* You can later integrate Dialogflow or your Node.js chatbot backend here */}
+                        {/* Chat messages (optional placeholder) */}
+                        <div className="chat-messages">
+                            {/* You can later map over messages here */}
+                        </div>
+
+                        {/* Input section */}
+                        <div className="chat-input-section">
+                            <input
+                            type="text"
+                            placeholder="Type your message..."
+                            className="chat-input"
+                            />
+                            <button className="chat-send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

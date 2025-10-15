@@ -65,7 +65,7 @@ const Home = () => {
                 </div>
                 {/* profile container */}
                 <div className="imgContainer">
-                    <img src="/src/assets/profile/profile.jpg" alt="profile picture" />
+                    <img src="images/profile/profile.jpg" alt="profile picture" />
                 </div>
             </div>
         </section>

@@ -9,7 +9,7 @@ const Project = () => {
                     <div className="projects-grid">
                         <div className="project-card">
                             <div className="project-image">
-                                <img src="./src/assets/project-img/StaffSync Logo.png" alt=""/>
+                                <img src="/images/project-img/StaffSync Logo.png" alt=""/>
                             </div>
                             <div className="project-info">
                                 <h3>StaffSync - Leave Management System</h3>
