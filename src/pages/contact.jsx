@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../styles/pages/contact.css";
 
 const Contact = () => {
@@ -6,6 +6,16 @@ const Contact = () => {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const messagesEndRef = useRef(null);
+
+    // Auto-scroll to bottom when new messages are added
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages, isLoading]);
 
     // Function to get current time in HH:MM format
     const getCurrentTime = () => {
@@ -136,8 +146,10 @@ const Contact = () => {
                         <div className="chat-messages">
                             {messages.length === 0 ? (
                                 <div className="chat-message bot welcome-message">
-                                    Hello! How can I help you today?
-                                    <div className="message-time">Just now</div>
+                                    <div className="message-text">Hi! I'm Kgotsofatso's bot. How can I assist you</div>
+                                    <div className="message-meta">
+                                        <span className="message-time">Just now</span>
+                                    </div>
                                 </div>
                             ) : (
                                 messages.map((msg, index) => (
@@ -146,7 +158,7 @@ const Contact = () => {
                                         className={`chat-message-wrapper ${msg.sender === "bot" ? "bot" : "user"}`}
                                     >
                                         <div className={`chat-message ${msg.sender}`}>
-                                            {msg.text}
+                                            <div className="message-text">{msg.text}</div>
                                             <div className="message-meta">
                                                 <span className="message-time">{msg.timestamp}</span>
                                                 {msg.sender === "user" && (
@@ -166,9 +178,12 @@ const Contact = () => {
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <div className="message-time">Typing...</div>
+                                    <div className="message-meta">
+                                        <span className="message-time">Typing...</span>
+                                    </div>
                                 </div>
                             )}
+                            <div ref={messagesEndRef} />
                         </div>
 
                         {/* Input section */}
