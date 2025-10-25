@@ -3,6 +3,83 @@ import "../styles/pages/contact.css";
 
 const Contact = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const [input, setInput] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
+    // Function to get current time in HH:MM format
+    const getCurrentTime = () => {
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+        });
+    };
+
+    const sendMessage = async () => {
+        if(!input.trim()) return;
+
+        // Add user message to chat immediately with timestamp
+        const userMessage = input;
+        const userTimestamp = getCurrentTime();
+        setMessages((prev) => [...prev, { 
+            sender: "user", 
+            text: userMessage,
+            timestamp: userTimestamp,
+            status: 'sent'
+        }]);
+        setInput("");
+        setIsLoading(true);
+
+        try {
+            const response = await fetch(`https://kgotsobot-backend.onrender.com/api/chat`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const botTimestamp = getCurrentTime();
+            
+            // Add bot response to chat with timestamp
+            setMessages((prev) => [...prev, { 
+                sender: "bot", 
+                text: data.response,
+                timestamp: botTimestamp
+            }]);
+        } catch (error) {
+            console.error("Error sending message: ", error);
+            const errorTimestamp = getCurrentTime();
+            setMessages((prev) => [...prev, { 
+                sender: "bot", 
+                text: "Oops! Something went wrong. Please try again later.",
+                timestamp: errorTimestamp
+            }]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' && !isLoading) {
+            sendMessage();
+        }
+    };
+
+    const handleSendClick = () => {
+        if (!isLoading) {
+            sendMessage();
+        }
+    };
+
     return (
         <section id="contact" className="section ">
             <div className="container">
@@ -35,10 +112,10 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
+            
             {/* Chatbot Icon */}
             <div
                 className="chatbot-icon"
@@ -56,21 +133,62 @@ const Contact = () => {
                         <button onClick={() => setIsOpen(false)}>×</button>
                     </div>
                     <div className="chatbot-body">
-                        <p>👋 Hi! I’m KgotsoBot. Ask me anything about me or my portfolio.</p>
-                        {/* You can later integrate Dialogflow or your Node.js chatbot backend here */}
-                        {/* Chat messages (optional placeholder) */}
                         <div className="chat-messages">
-                            {/* You can later map over messages here */}
+                            {messages.length === 0 ? (
+                                <div className="chat-message bot welcome-message">
+                                    Hello! How can I help you today?
+                                    <div className="message-time">Just now</div>
+                                </div>
+                            ) : (
+                                messages.map((msg, index) => (
+                                    <div 
+                                        key={index} 
+                                        className={`chat-message-wrapper ${msg.sender === "bot" ? "bot" : "user"}`}
+                                    >
+                                        <div className={`chat-message ${msg.sender}`}>
+                                            {msg.text}
+                                            <div className="message-meta">
+                                                <span className="message-time">{msg.timestamp}</span>
+                                                {msg.sender === "user" && (
+                                                    <span className="message-status">
+                                                        {msg.status === 'sent' && '✓✓'}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                            {isLoading && (
+                                <div className="chat-message bot">
+                                    <div className="typing-indicator">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div className="message-time">Typing...</div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Input section */}
                         <div className="chat-input-section">
                             <input
-                            type="text"
-                            placeholder="Type your message..."
-                            className="chat-input"
+                                type="text"
+                                placeholder="Type your message..."
+                                className="chat-input" 
+                                value={input} 
+                                onChange={(e) => setInput(e.target.value)} 
+                                onKeyDown={handleKeyPress}
+                                disabled={isLoading}
                             />
-                            <button className="chat-send-btn">Send</button>
+                            <button 
+                                className="chat-send-btn" 
+                                onClick={handleSendClick}
+                                disabled={isLoading || !input.trim()}
+                            >
+                                {isLoading ? "..." : "Send"}
+                            </button>
                         </div>
                     </div>
                 </div>

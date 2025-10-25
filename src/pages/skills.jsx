@@ -10,39 +10,39 @@ const Skills = () => {
                     <div className="languages-flex">
                         <div className="language-grid">
                             <h3>Backend Languages</h3>
-                            <div className="language-item"><img src="/images/languages/php.png" alt="php" class="custom-icon" /></div>
-                            <div className="language-item"><img src="/images/languages/python.png" alt="python" class="custom-icon" /></div>
-                            <div className="language-item"><img src="/images/languages/nodejs.png" alt="Node.js" class="custom-icon" /></div>
-                            <div className="language-item"><img src="/images/languages/c-sharp.png" alt="C#" class="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/php.png" alt="php" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/python.png" alt="python" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/nodejs.png" alt="Node.js" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/c-sharp.png" alt="C#" className="custom-icon" /></div>
                         </div>
-                        <div class="language-grid">
+                        <div className="language-grid">
                             <h3>Frontend Languages</h3>
-                            <div class="language-item"><img src="/images/languages/html-5.png" alt="HTML5" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/css-3.png" alt="CSS3" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/js.png" alt="JavaScript" class="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/html-5.png" alt="HTML5" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/css-3.png" alt="CSS3" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/js.png" alt="JavaScript" className="custom-icon" /></div>
                             
                         </div>
-                        <div class="language-grid">
+                        <div className="language-grid">
                             <h3>Frameworks & Libraries</h3>
-                            <div class="language-item"><img src="/images/languages/bootstrap-5-1.svg" alt="Bootstrap" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/react-2.svg" alt="ReactJs" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/laravel-2.svg" alt="Laravel" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/express-109.svg" alt="ExpressJs" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/tailwind-css-2.svg" alt="Tailwind" class="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/bootstrap-5-1.svg" alt="Bootstrap" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/react-2.svg" alt="ReactJs"         className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/laravel-2.svg" alt="Laravel"       className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/express-109.svg" alt="ExpressJs"   className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/tailwind-css-2.svg" alt="Tailwind" className="custom-icon" /></div>
                             
                         </div>
-                        <div class="language-grid">
+                        <div className="language-grid">
                             <h3>Databases</h3>
-                            <div class="language-item"><img src="/images/languages/mysql-logo-pure.svg" alt="MySQL" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/mongodb-icon-2.svg" alt="MongoBD" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/postgresql.svg" alt="PostgreSQL" class="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/mysql-logo-pure.svg" alt="MySQL"  className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/mongodb-icon-2.svg" alt="MongoBD" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/postgresql.svg" alt="PostgreSQL"  className="custom-icon" /></div>
                             
                         </div>
-                        <div class="language-grid">
+                        <div className="language-grid">
                             <h3>Tools & Version Control</h3>
-                            <div class="language-item"><img src="/images/languages/visual-studio-code-1.svg" alt="vscode" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/intellij-idea-1.svg" alt="IntelliJ" class="custom-icon" /></div>
-                            <div class="language-item"><img src="/images/languages/git-icon.svg" alt="Git" class="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/visual-studio-code-1.svg" alt="vscode" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/intellij-idea-1.svg" alt="IntelliJ" className="custom-icon" /></div>
+                            <div className="language-item"><img src="/images/languages/git-icon.svg" alt="Git" className="custom-icon" /></div>
                             
                         </div>
                     </div>

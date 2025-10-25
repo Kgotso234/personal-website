@@ -28,7 +28,28 @@ const Project = () => {
                                 
                             </div>
                         </div>
-                    </div>            
+                    </div>
+                    {/* <div className="projects-grid">
+                        <div className="project-card">
+                            <div className="project-image">
+                                <img src="/images/project-img/StaffSync Logo.png" alt=""/>
+                            </div>
+                            <div className="project-info">
+                                <h3></h3>
+                                <p>
+                                    
+                                </p>
+                                <div className="project-tech">
+                                    <span>React.Js</span>
+                                    <span>HTML & CSS</span>
+                                    <p>Status: Under development</p>
+                                </div>
+                                <a href="" className="project-link">View Project</a>
+
+                                
+                            </div>
+                        </div>
+                    </div>             */}
                 </div>
             </div>
         </section>
